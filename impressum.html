@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Harmona</title>
+<meta name="description" content="Impressum der Harmona Zyklus-App. Angaben gemäß § 5 TMG.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdfaff;
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --pink-500: #ec4899;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--gray-700);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  background: white;
+  border-bottom: 1px solid var(--gray-100);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--gray-900);
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+}
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--purple-600), var(--pink-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.back-link {
+  font-size: 14px;
+  color: var(--purple-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+
+.hero {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--purple-700), var(--pink-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle {
+  font-size: 16px;
+  color: var(--gray-500);
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--purple-50);
+  color: var(--purple-600);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--purple-100);
+}
+
+.content { padding-bottom: 80px; }
+
+.section {
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s;
+}
+.section:hover {
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.06);
+}
+.section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  color: white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.section p {
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+.section p:last-child { margin-bottom: 0; }
+.section a {
+  color: var(--purple-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+.section a:hover { text-decoration: underline; }
+
+.contact-card {
+  background: linear-gradient(135deg, var(--purple-50), #fdf2f8);
+  border: 1px solid var(--purple-100);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin-top: 32px;
+}
+.contact-card a {
+  color: var(--purple-600);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--gray-400);
+  font-size: 13px;
+}
+footer a {
+  color: var(--gray-500);
+  text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .hero { padding: 40px 0 28px; }
+  .hero h1 { font-size: 26px; }
+  .section { padding: 20px 22px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">
+      <div class="logo-icon">🌸</div>
+      <span class="logo-text">Harmona</span>
+    </a>
+    <a href="/" class="back-link">← Zurück</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <h1>Impressum</h1>
+    <p class="subtitle">Angaben gemäß § 5 TMG</p>
+    <span class="badge">Stand: Februar 2026</span>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <!-- 1. Angaben zum Betreiber -->
+    <div class="section">
+      <h2><span class="num">1</span> Angaben zum Betreiber</h2>
+      <p><strong>Laura Noell</strong><br>
+      Alexandrinenstraße 118<br>
+      10969 Berlin<br>
+      Deutschland</p>
+    </div>
+
+    <!-- 2. Kontakt -->
+    <div class="section">
+      <h2><span class="num">2</span> Kontakt</h2>
+      <p>E-Mail: <a href="mailto:info@harmonaapp.com">info@harmonaapp.com</a></p>
+      <p>Website: <a href="https://harmonaapp.com">harmonaapp.com</a></p>
+    </div>
+
+    <!-- 3. Verantwortlich für den Inhalt -->
+    <div class="section">
+      <h2><span class="num">3</span> Verantwortlich für den Inhalt gem. § 55 Abs. 2 RStV</h2>
+      <p><strong>Laura Noell</strong><br>
+      Alexandrinenstraße 118<br>
+      10969 Berlin</p>
+    </div>
+
+    <!-- 4. Haftungsausschluss -->
+    <div class="section">
+      <h2><span class="num">4</span> Haftung für Inhalte</h2>
+      <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+      <p>Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    </div>
+
+    <!-- 5. Haftung für Links -->
+    <div class="section">
+      <h2><span class="num">5</span> Haftung für Links</h2>
+      <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+      <p>Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar.</p>
+    </div>
+
+    <!-- 6. Urheberrecht -->
+    <div class="section">
+      <h2><span class="num">6</span> Urheberrecht</h2>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+      <p>Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+    </div>
+
+    <!-- 7. Medizinischer Hinweis -->
+    <div class="section">
+      <h2><span class="num">7</span> Medizinischer Hinweis</h2>
+      <p>Harmona ist ein Lifestyle- und Wellness-Produkt und bietet <strong>keine medizinische Beratung, Diagnose oder Behandlung</strong>. Die bereitgestellten Informationen zu Zyklusgesundheit, Ernährung, Supplements und Bewegung dienen ausschließlich der allgemeinen Information und ersetzen keinen Arztbesuch.</p>
+      <p>Bei gesundheitlichen Beschwerden wende dich bitte an eine qualifizierte medizinische Fachkraft.</p>
+    </div>
+
+    <!-- Kontakt -->
+    <div class="contact-card">
+      <p style="font-size: 24px; margin-bottom: 12px;">💬</p>
+      <p><strong>Fragen?</strong></p>
+      <p>Schreib uns gerne an <a href="mailto:info@harmonaapp.com">info@harmonaapp.com</a></p>
+      <p style="font-size: 13px; color: var(--gray-400); margin-top: 12px;">Wir antworten in der Regel innerhalb von 24 Stunden.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Harmona · <a href="/privacy">Datenschutz</a> · <a href="/impressum">Impressum</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

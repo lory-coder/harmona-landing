@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung — Harmona</title>
+<meta name="description" content="Datenschutzerklärung der Harmona Zyklus-App. Informationen zur Datenverarbeitung, Ihren Rechten und unserer WHOOP-Integration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fdfaff;
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --pink-500: #ec4899;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--gray-700);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+header {
+  background: white;
+  border-bottom: 1px solid var(--gray-100);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--gray-900);
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: white;
+}
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--purple-600), var(--pink-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.back-link {
+  font-size: 14px;
+  color: var(--purple-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+
+/* Hero */
+.hero {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+}
+.hero .subtitle {
+  font-size: 16px;
+  color: var(--gray-500);
+}
+.hero .badge {
+  display: inline-block;
+  background: var(--purple-100);
+  color: var(--purple-700);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+/* Content */
+.content {
+  padding-bottom: 80px;
+}
+
+.section {
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section h2 .num {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--purple-500), var(--pink-500));
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 20px 0 8px;
+}
+
+.section p {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin-bottom: 12px;
+}
+
+.section ul {
+  margin: 8px 0 16px 0;
+  padding-left: 0;
+  list-style: none;
+}
+.section ul li {
+  font-size: 14px;
+  color: var(--gray-600);
+  padding: 6px 0 6px 24px;
+  position: relative;
+}
+.section ul li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--purple-500);
+  opacity: 0.4;
+}
+
+.highlight-box {
+  background: var(--purple-50);
+  border: 1px solid var(--purple-100);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.highlight-box p {
+  color: var(--purple-700);
+  margin-bottom: 0;
+}
+
+.warning-box {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.warning-box p {
+  color: #92400e;
+  margin-bottom: 0;
+}
+
+.whoop-box {
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.whoop-box p {
+  color: #166534;
+  margin-bottom: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 13px;
+}
+table th {
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  color: var(--gray-700);
+  font-weight: 600;
+}
+table td {
+  padding: 10px 12px;
+  border: 1px solid var(--gray-200);
+  color: var(--gray-600);
+}
+
+.contact-card {
+  background: linear-gradient(135deg, var(--purple-50), #fdf2f8);
+  border: 1px solid var(--purple-100);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.contact-card p {
+  color: var(--gray-700);
+}
+.contact-card a {
+  color: var(--purple-600);
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact-card a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--gray-100);
+}
+footer p {
+  font-size: 13px;
+  color: var(--gray-400);
+}
+footer a {
+  color: var(--purple-600);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 24px; }
+  .section { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">
+      <div class="logo-icon">🌸</div>
+      <span class="logo-text">Harmona</span>
+    </a>
+    <a href="/" class="back-link">← Zurück zur App</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <h1>Datenschutzerklärung</h1>
+    <p class="subtitle">Wie Harmona deine Daten schützt und verarbeitet</p>
+    <span class="badge">Stand: Februar 2026 · DSGVO-konform</span>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+
+    <!-- 1. Verantwortlicher -->
+    <div class="section">
+      <h2><span class="num">1</span> Verantwortlicher</h2>
+      <p><strong>Laura Noell</strong><br>
+      Alexandrinenstraße 118<br>
+      10969 Berlin<br>
+      Deutschland</p>
+      <p>E-Mail: <a href="mailto:lauracnoell@gmail.com" style="color: var(--purple-600);">lauracnoell@gmail.com</a></p>
+    </div>
+
+    <!-- 2. Welche Daten werden erhoben -->
+    <div class="section">
+      <h2><span class="num">2</span> Welche Daten werden erhoben?</h2>
+      <p>Harmona erhebt und verarbeitet folgende Datenkategorien:</p>
+      
+      <h3>2.1 Zyklusdaten</h3>
+      <ul>
+        <li>Datum der letzten Periode und Zykluslänge</li>
+        <li>Berechnete Zyklusphasen (Menstruation, Follikel, Ovulation, Luteal)</li>
+        <li>Vorhersagen zu Eisprung, fruchtbaren Tagen und nächster Periode</li>
+      </ul>
+
+      <h3>2.2 Gesundheits- und Symptomdaten</h3>
+      <ul>
+        <li>Stimmung, Energielevel, Schmerzintensität, Schlafqualität</li>
+        <li>Körperliche Symptome (Kopfschmerzen, Krämpfe, Blähungen etc.)</li>
+        <li>Emotionale Symptome (Stimmungsschwankungen, Reizbarkeit etc.)</li>
+        <li>Haut- und Haarveränderungen</li>
+        <li>Wasseraufnahme und Supplement-Tracking</li>
+      </ul>
+
+      <h3>2.3 Tagebucheinträge</h3>
+      <ul>
+        <li>Persönliche Notizen und Reflexionen</li>
+        <li>Dankbarkeitseinträge</li>
+      </ul>
+
+      <h3>2.4 Google-Daten (optional)</h3>
+      <ul>
+        <li>E-Mail-Adresse (zur Authentifizierung)</li>
+        <li>Kalendereinträge (wenn Google Calendar verbunden)</li>
+      </ul>
+
+      <h3>2.5 WHOOP-Daten (optional)</h3>
+      <div class="whoop-box">
+        <p><strong>🟢 Bei Verbindung mit einem WHOOP-Gerät:</strong></p>
+        <p>Die folgenden Daten werden von WHOOP abgerufen, wenn du die Integration aktivierst:</p>
+      </div>
+      <ul>
+        <li><strong>Schlafdaten:</strong> Schlafdauer, Schlafphasen (Tief-, REM-, Leichtschlaf), Schlafeffizienz, Atemfrequenz</li>
+        <li><strong>Recovery-Daten:</strong> Recovery Score, Herzratenvariabilität (HRV), Ruhepuls</li>
+        <li><strong>Hauttemperatur:</strong> Nächtliche Hauttemperaturmessungen</li>
+        <li><strong>Blutsauerstoff (SpO2):</strong> Sauerstoffsättigung im Blut</li>
+        <li><strong>Belastungsdaten:</strong> Strain Score, Herzfrequenzzonen, Kalorienverbrauch</li>
+        <li><strong>Workout-Daten:</strong> Trainingsart, Dauer, Herzfrequenz</li>
+        <li><strong>Profildaten:</strong> Name, E-Mail (zur Identifikation)</li>
+        <li><strong>Körpermaße:</strong> Größe, Gewicht, maximale Herzfrequenz</li>
+      </ul>
+
+      <h3>2.6 Altersgruppe</h3>
+      <ul>
+        <li>Selbst angegebene Altersgruppe zur Anpassung der Empfehlungen</li>
+      </ul>
+    </div>
+
+    <!-- 3. Zweck -->
+    <div class="section">
+      <h2><span class="num">3</span> Zweck der Datenverarbeitung</h2>
+      <p>Wir verarbeiten deine Daten ausschließlich für folgende Zwecke:</p>
+      
+      <table>
+        <tr>
+          <th>Daten</th>
+          <th>Zweck</th>
+        </tr>
+        <tr>
+          <td>Zyklusdaten</td>
+          <td>Berechnung der Zyklusphase, Vorhersagen, phasengerechte Empfehlungen</td>
+        </tr>
+        <tr>
+          <td>Symptome</td>
+          <td>Symptom-Analyse, KI-Vorhersagen, personalisierte Tipps</td>
+        </tr>
+        <tr>
+          <td>WHOOP-Daten</td>
+          <td>Schlafanalyse im Zykluskontext, Temperatur-Tracking für Eisprung-Erkennung, Recovery-Optimierung</td>
+        </tr>
+        <tr>
+          <td>Journal</td>
+          <td>Persönliche Reflexion, Stimmungsverlauf</td>
+        </tr>
+        <tr>
+          <td>Google-Daten</td>
+          <td>Login, Kalender-Synchronisation</td>
+        </tr>
+      </table>
+
+      <div class="highlight-box">
+        <p>🔒 <strong>Wir verwenden deine Daten niemals für Werbung, verkaufen sie nicht an Dritte und erstellen keine Profile für Drittanbieter.</strong></p>
+      </div>
+    </div>
+
+    <!-- 4. Rechtsgrundlage -->
+    <div class="section">
+      <h2><span class="num">4</span> Rechtsgrundlage</h2>
+      <p>Die Verarbeitung erfolgt auf folgenden Rechtsgrundlagen:</p>
+      <ul>
+        <li><strong>Art. 9 Abs. 2 lit. a DSGVO:</strong> Ausdrückliche Einwilligung für die Verarbeitung von Gesundheitsdaten (Zyklusdaten, Symptome, WHOOP-Gesundheitsdaten)</li>
+        <li><strong>Art. 6 Abs. 1 lit. a DSGVO:</strong> Einwilligung für sonstige personenbezogene Daten</li>
+        <li><strong>Art. 6 Abs. 1 lit. b DSGVO:</strong> Vertragserfüllung (Bereitstellung der App-Funktionen)</li>
+      </ul>
+    </div>
+
+    <!-- 5. WHOOP-Integration -->
+    <div class="section">
+      <h2><span class="num">5</span> WHOOP-Integration</h2>
+      
+      <h3>5.1 Verbindung und Autorisierung</h3>
+      <p>Die Verbindung zu WHOOP erfolgt über das branchenübliche OAuth 2.0-Protokoll. Du wirst zur WHOOP-Website weitergeleitet, um Harmona den Zugriff auf deine Daten zu genehmigen. Harmona erhält dabei niemals dein WHOOP-Passwort.</p>
+
+      <h3>5.2 Datenfluss</h3>
+      <ul>
+        <li>Daten werden direkt von den WHOOP-Servern an unsere Server übertragen</li>
+        <li>Die Übertragung erfolgt verschlüsselt über HTTPS</li>
+        <li>Wir speichern OAuth-Zugangsdaten (Access Token, Refresh Token) sicher auf unserem Server</li>
+        <li>Daten werden bei Bedarf abgerufen (nicht kontinuierlich gestreamt)</li>
+      </ul>
+
+      <h3>5.3 Verwendung der WHOOP-Daten</h3>
+      <p>Die WHOOP-Daten werden ausschließlich verwendet, um:</p>
+      <ul>
+        <li>Schlafqualität im Kontext deines Zyklus zu analysieren</li>
+        <li>Hauttemperatur-Trends für die Eisprung-Erkennung zu nutzen</li>
+        <li>HRV-Veränderungen über den Zyklus hinweg zu visualisieren</li>
+        <li>Personalisierte Recovery-Empfehlungen basierend auf deiner Zyklusphase zu geben</li>
+      </ul>
+
+      <h3>5.4 Trennung der Verbindung</h3>
+      <p>Du kannst die WHOOP-Verbindung jederzeit in den App-Einstellungen (Mehr → WHOOP → Trennen) widerrufen. Nach dem Trennen:</p>
+      <ul>
+        <li>Werden keine neuen Daten von WHOOP abgerufen</li>
+        <li>Werden gespeicherte Zugangs-Token gelöscht</li>
+        <li>Du kannst die Verbindung auch direkt in der WHOOP-App widerrufen</li>
+      </ul>
+      
+      <div class="highlight-box">
+        <p>ℹ️ Die WHOOP-Integration ist vollständig optional. Harmona funktioniert auch ohne WHOOP-Verbindung mit vollem Funktionsumfang.</p>
+      </div>
+    </div>
+
+    <!-- 6. Speicherung -->
+    <div class="section">
+      <h2><span class="num">6</span> Speicherung und Sicherheit</h2>
+      
+      <h3>6.1 Speicherorte</h3>
+      <ul>
+        <li><strong>Server-Daten:</strong> Auf Servern in der EU gespeichert</li>
+        <li><strong>Lokale Daten:</strong> Einige Daten (Supplements, Tagesplan, Einstellungen) werden lokal in deinem Browser gespeichert (LocalStorage)</li>
+        <li><strong>WHOOP-Tokens:</strong> OAuth-Zugangsdaten werden serverseitig gespeichert</li>
+      </ul>
+
+      <h3>6.2 Sicherheitsmaßnahmen</h3>
+      <ul>
+        <li>Verschlüsselte Datenübertragung (HTTPS/TLS)</li>
+        <li>OAuth 2.0 für sichere Drittanbieter-Autorisierung</li>
+        <li>Automatische Token-Rotation für WHOOP-Zugangsdaten</li>
+        <li>Keine Speicherung von Passwörtern Dritter</li>
+      </ul>
+
+      <h3>6.3 Speicherdauer</h3>
+      <p>Deine Daten werden gespeichert, solange du die App nutzt. Bei Löschung deines Accounts werden alle personenbezogenen Daten innerhalb von 30 Tagen gelöscht.</p>
+    </div>
+
+    <!-- 7. Weitergabe an Dritte -->
+    <div class="section">
+      <h2><span class="num">7</span> Weitergabe an Dritte</h2>
+      <p>Deine Daten werden grundsätzlich nicht an Dritte weitergegeben. Ausnahmen:</p>
+      
+      <table>
+        <tr>
+          <th>Drittanbieter</th>
+          <th>Zweck</th>
+          <th>Datenarten</th>
+        </tr>
+        <tr>
+          <td>Google (optional)</td>
+          <td>Login, Kalender-Sync</td>
+          <td>E-Mail, Kalendereinträge</td>
+        </tr>
+        <tr>
+          <td>WHOOP (optional)</td>
+          <td>Gesundheitsdaten-Abruf</td>
+          <td>OAuth-Token (Datenfluss: WHOOP → Harmona)</td>
+        </tr>
+      </table>
+
+      <div class="warning-box">
+        <p>⚠️ <strong>Wichtig:</strong> Harmona verkauft, teilt oder vermarktet keine deiner Gesundheitsdaten. Es werden keine Daten an Werbetreibende, Analysedienste oder sonstige Dritte übermittelt.</p>
+      </div>
+    </div>
+
+    <!-- 8. Deine Rechte -->
+    <div class="section">
+      <h2><span class="num">8</span> Deine Rechte</h2>
+      <p>Du hast gemäß DSGVO folgende Rechte:</p>
+      <ul>
+        <li><strong>Auskunftsrecht (Art. 15):</strong> Welche Daten wir über dich gespeichert haben</li>
+        <li><strong>Berichtigungsrecht (Art. 16):</strong> Korrektur unrichtiger Daten</li>
+        <li><strong>Löschungsrecht (Art. 17):</strong> Löschung deiner Daten ("Recht auf Vergessenwerden")</li>
+        <li><strong>Einschränkung (Art. 18):</strong> Einschränkung der Verarbeitung</li>
+        <li><strong>Datenübertragbarkeit (Art. 20):</strong> Export deiner Daten in einem gängigen Format</li>
+        <li><strong>Widerspruchsrecht (Art. 21):</strong> Widerspruch gegen die Verarbeitung</li>
+        <li><strong>Widerruf der Einwilligung:</strong> Jederzeit ohne Angabe von Gründen</li>
+      </ul>
+      <p>Zur Ausübung deiner Rechte wende dich an: <a href="mailto:lauracnoell@gmail.com" style="color: var(--purple-600); font-weight: 600;">lauracnoell@gmail.com</a></p>
+      <p>Du hast zudem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+    </div>
+
+    <!-- 9. Cookies -->
+    <div class="section">
+      <h2><span class="num">9</span> Cookies und lokale Speicherung</h2>
+      <p>Harmona verwendet keine Tracking-Cookies und keine Analyse-Tools von Drittanbietern. Wir nutzen ausschließlich:</p>
+      <ul>
+        <li><strong>LocalStorage:</strong> Für App-Einstellungen und Offline-Funktionalität</li>
+        <li><strong>Session-Daten:</strong> Für die Authentifizierung während der Nutzung</li>
+      </ul>
+      <p>Es werden keine Werbe-Cookies, Tracking-Pixel oder Fingerprinting-Technologien eingesetzt.</p>
+    </div>
+
+    <!-- 10. Medizinischer Hinweis -->
+    <div class="section">
+      <h2><span class="num">10</span> Medizinischer Hinweis</h2>
+      <div class="warning-box">
+        <p>⚕️ <strong>Harmona ist kein Medizinprodukt.</strong> Die App dient ausschließlich zu Informationszwecken und ersetzt keine ärztliche Beratung. Zyklusvorhersagen, Temperaturanalysen und Supplement-Empfehlungen sind Schätzungen und nicht zur Verhütung oder Diagnose geeignet. Bei gesundheitlichen Beschwerden wende dich bitte an eine Ärztin oder einen Arzt.</p>
+      </div>
+    </div>
+
+    <!-- 11. Änderungen -->
+    <div class="section">
+      <h2><span class="num">11</span> Änderungen dieser Datenschutzerklärung</h2>
+      <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf zu aktualisieren, etwa bei neuen Funktionen oder geänderten rechtlichen Anforderungen. Die aktuelle Version ist stets unter dieser URL abrufbar.</p>
+      <p><strong>Letzte Aktualisierung:</strong> Februar 2026</p>
+    </div>
+
+    <!-- Kontakt -->
+    <div class="contact-card">
+      <p style="font-size: 24px; margin-bottom: 12px;">💬</p>
+      <p><strong>Fragen zum Datenschutz?</strong></p>
+      <p>Schreib uns gerne an <a href="mailto:lauracnoell@gmail.com">lauracnoell@gmail.com</a></p>
+      <p style="font-size: 13px; color: var(--gray-400); margin-top: 12px;">Wir antworten in der Regel innerhalb von 48 Stunden.</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Harmona · Laura Noell · Berlin</p>
+    <p style="margin-top: 8px;">
+      <a href="/">Startseite</a> · 
+      <a href="/privacy">Datenschutz</a> · 
+      <a href="/impressum">Impressum</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
