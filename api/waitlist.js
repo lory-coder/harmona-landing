@@ -11,7 +11,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 async function sendWelcomeEmail(email) {
   try {
     await resend.emails.send({
-      from: 'Harmona <hello@send.harmonaapp.com>',
+      from: 'Harmona <hello@harmonaapp.com>',
       to: email,
       subject: 'Du bist auf der Warteliste! 💜',
       html: `
