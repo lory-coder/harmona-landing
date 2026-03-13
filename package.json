@@ -2,6 +2,7 @@
   "name": "harmona-landing",
   "private": true,
   "dependencies": {
-    "@supabase/supabase-js": "^2.39.0"
+    "@supabase/supabase-js": "^2.39.0",
+    "resend": "^6.9.3"
   }
 }
