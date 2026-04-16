@@ -395,66 +395,120 @@ footer {
   margin: 0 auto 48px;
   line-height: 1.6;
 }
+.slider-main {
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px;
+}
+.slider-arrow {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(124,58,237,0.15);
+  color: var(--purple);
+  font-size: 26px; font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(124,58,237,0.12);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  user-select: none;
+}
+.slider-arrow:hover {
+  background: var(--purple);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(124,58,237,0.3);
+}
+.slider-arrow:active { transform: scale(0.96); }
 .slider-stage {
   position: relative;
-  height: 640px;
-  display: flex; align-items: center; justify-content: center;
+  width: 300px; height: 640px;
+  flex-shrink: 0;
 }
-.slider-track { position: relative; width: 100%; height: 100%; }
 .slide {
   position: absolute;
-  top: 0; left: 50%;
-  width: 290px;
-  transform: translate(-50%, 0) scale(0.92);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: scale(0.94);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: none;
+  cursor: pointer;
 }
 .slide.active {
   opacity: 1;
-  transform: translate(-50%, 0) scale(1);
+  transform: scale(1);
   pointer-events: auto;
 }
 .slide img {
-  width: 100%; height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   display: block;
   filter: drop-shadow(0 28px 50px rgba(124,58,237,0.25));
 }
-.slide-caption {
+.slider-info {
   margin-top: 28px;
-  font-size: 15px; font-weight: 500;
+  min-height: 52px;
+}
+.slider-info-title {
+  font-size: 17px; font-weight: 600;
   color: var(--text);
 }
-.slide-caption span {
-  display: block;
-  font-size: 13px; font-weight: 400;
-  color: var(--muted);
+.slider-info-sub {
   margin-top: 4px;
+  font-size: 14px; font-weight: 400;
+  color: var(--muted);
 }
-.slider-dots {
+.slider-thumbs {
   display: flex; justify-content: center;
-  gap: 10px; margin-top: 8px;
+  gap: 14px; margin-top: 36px;
+  flex-wrap: wrap;
 }
-.slider-dots .dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(124,58,237,0.22);
-  border: none; cursor: pointer; padding: 0;
+.thumb {
+  width: 62px; height: 132px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.5;
   transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.10);
 }
-.slider-dots .dot:hover { background: rgba(124,58,237,0.45); }
-.slider-dots .dot.active {
-  background: var(--purple);
-  width: 26px; border-radius: 5px;
+.thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.thumb:hover {
+  opacity: 0.9;
+  transform: translateY(-3px);
+}
+.thumb.active {
+  opacity: 1;
+  border-color: var(--purple);
+  box-shadow: 0 10px 24px rgba(124,58,237,0.28);
+  transform: translateY(-4px);
 }
 @media (max-width: 720px) {
-  .app-slider { padding: 64px 24px 40px; }
+  .app-slider { padding: 64px 16px 40px; }
   .slider-heading { font-size: 26px; }
   .slider-sub { font-size: 14px; margin-bottom: 32px; }
-  .slider-stage { height: 560px; }
-  .slide { width: 240px; }
-  .slide-caption { font-size: 14px; margin-top: 20px; }
-  .slide-caption span { font-size: 12px; }
+  .slider-main { gap: 10px; }
+  .slider-arrow { width: 40px; height: 40px; font-size: 20px; }
+  .slider-stage { width: 240px; height: 512px; }
+  .slider-info-title { font-size: 15px; }
+  .slider-info-sub { font-size: 13px; }
+  .thumb { width: 50px; height: 106px; border-radius: 12px; }
+  .slider-thumbs { gap: 8px; margin-top: 24px; }
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -480,37 +534,51 @@ footer {
   <div class="slider-container">
     <div class="slider-eyebrow">So fühlt sich Harmona an</div>
     <h2 class="slider-heading">Deine Zyklus-Begleiterin — <em>in einer App.</em></h2>
-    <p class="slider-sub">Fünf Screens, ein Rhythmus. Alles, was dein Körper heute braucht — personalisiert auf deine Phase.</p>
-    <div class="slider-stage">
-      <div class="slider-track">
-        <div class="slide active" data-idx="0">
-          <img src="images/mockup-home.png" alt="Heute-Tab mit Luna-Insight und Energie-Chart" loading="eager" width="290" height="615">
-          <p class="slide-caption">Dein Tag mit Luna<span>Energie, Recovery & heutiger Plan</span></p>
+    <p class="slider-sub">Tippe unten auf einen Screen — oder nutze die Pfeile.</p>
+
+    <div class="slider-main">
+      <button class="slider-arrow slider-prev" aria-label="Vorheriger Screen" type="button">‹</button>
+      <div class="slider-stage">
+        <div class="slide active" data-idx="0" data-title="Dein Tag mit Luna" data-sub="Energie, Recovery & heutiger Plan">
+          <img src="images/mockup-home.png" alt="Heute-Tab mit Luna-Insight und Energie-Chart" loading="eager">
         </div>
-        <div class="slide" data-idx="1">
-          <img src="images/mockup-plan.png" alt="Wochenplan mit Ernährung, Schlaf und Rezepten" loading="lazy" width="290" height="615">
-          <p class="slide-caption">Dein Plan für die Woche<span>Ernährung &amp; Schlaf · auf deine Phase abgestimmt</span></p>
+        <div class="slide" data-idx="1" data-title="Dein Plan für die Woche" data-sub="Ernährung & Schlaf · auf deine Phase abgestimmt">
+          <img src="images/mockup-plan.png" alt="Wochenplan mit Ernährung, Schlaf und Rezepten" loading="lazy">
         </div>
-        <div class="slide" data-idx="2">
-          <img src="images/mockup-supplements.png" alt="Supplement-Liste personalisiert" loading="lazy" width="290" height="615">
-          <p class="slide-caption">Supplements, die Sinn machen<span>Vitamin D, Zink, Ashwagandha — zur richtigen Zeit</span></p>
+        <div class="slide" data-idx="2" data-title="Supplements, die Sinn machen" data-sub="Vitamin D, Zink, Ashwagandha — zur richtigen Zeit">
+          <img src="images/mockup-supplements.png" alt="Supplement-Liste personalisiert" loading="lazy">
         </div>
-        <div class="slide" data-idx="3">
-          <img src="images/mockup-rezept.png" alt="Rezept Goldene Milch Energieballs" loading="lazy" width="290" height="615">
-          <p class="slide-caption">Rezepte, die zu dir passen<span>Entzündungshemmend, saisonal, einfach</span></p>
+        <div class="slide" data-idx="3" data-title="Rezepte, die zu dir passen" data-sub="Entzündungshemmend, saisonal, einfach">
+          <img src="images/mockup-rezept.png" alt="Rezept Goldene Milch Energieballs" loading="lazy">
         </div>
-        <div class="slide" data-idx="4">
-          <img src="images/mockup-journal.png" alt="Journal mit Neumond-Ritual" loading="lazy" width="290" height="615">
-          <p class="slide-caption">Journal &amp; Mond-Rituale<span>Intention, Reflexion, Verbindung</span></p>
+        <div class="slide" data-idx="4" data-title="Journal & Mond-Rituale" data-sub="Intention, Reflexion, Verbindung">
+          <img src="images/mockup-journal.png" alt="Journal mit Neumond-Ritual" loading="lazy">
         </div>
       </div>
+      <button class="slider-arrow slider-next" aria-label="Nächster Screen" type="button">›</button>
     </div>
-    <div class="slider-dots">
-      <button class="dot active" data-idx="0" aria-label="Slide 1"></button>
-      <button class="dot" data-idx="1" aria-label="Slide 2"></button>
-      <button class="dot" data-idx="2" aria-label="Slide 3"></button>
-      <button class="dot" data-idx="3" aria-label="Slide 4"></button>
-      <button class="dot" data-idx="4" aria-label="Slide 5"></button>
+
+    <div class="slider-info">
+      <div class="slider-info-title" id="sliderCaptionTitle">Dein Tag mit Luna</div>
+      <div class="slider-info-sub" id="sliderCaptionSub">Energie, Recovery &amp; heutiger Plan</div>
+    </div>
+
+    <div class="slider-thumbs" role="tablist" aria-label="Screens auswählen">
+      <button class="thumb active" data-idx="0" aria-label="Heute-Tab" type="button">
+        <img src="images/mockup-home.png" alt="">
+      </button>
+      <button class="thumb" data-idx="1" aria-label="Wochenplan" type="button">
+        <img src="images/mockup-plan.png" alt="">
+      </button>
+      <button class="thumb" data-idx="2" aria-label="Supplements" type="button">
+        <img src="images/mockup-supplements.png" alt="">
+      </button>
+      <button class="thumb" data-idx="3" aria-label="Rezept" type="button">
+        <img src="images/mockup-rezept.png" alt="">
+      </button>
+      <button class="thumb" data-idx="4" aria-label="Journal" type="button">
+        <img src="images/mockup-journal.png" alt="">
+      </button>
     </div>
   </div>
 </section>
@@ -748,45 +816,74 @@ footer {
 <script>
 // ── App-Slider ──────────────────────────────────────
 (function () {
-  const slides = document.querySelectorAll('.app-slider .slide');
-  const dots = document.querySelectorAll('.app-slider .dot');
-  if (!slides.length || !dots.length) return;
+  const slider = document.querySelector('.app-slider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.slide');
+  const thumbs = slider.querySelectorAll('.thumb');
+  const prevBtn = slider.querySelector('.slider-prev');
+  const nextBtn = slider.querySelector('.slider-next');
+  const captionTitle = document.getElementById('sliderCaptionTitle');
+  const captionSub = document.getElementById('sliderCaptionSub');
+  if (!slides.length) return;
 
   let idx = 0;
   let timer = null;
-  const INTERVAL = 4500;
+  const INTERVAL = 5000;
 
   function go(i) {
     slides[idx].classList.remove('active');
-    dots[idx].classList.remove('active');
+    if (thumbs[idx]) thumbs[idx].classList.remove('active');
     idx = (i + slides.length) % slides.length;
-    slides[idx].classList.add('active');
-    dots[idx].classList.add('active');
+    const s = slides[idx];
+    s.classList.add('active');
+    if (thumbs[idx]) thumbs[idx].classList.add('active');
+    if (captionTitle && s.dataset.title) captionTitle.textContent = s.dataset.title;
+    if (captionSub && s.dataset.sub) captionSub.textContent = s.dataset.sub;
   }
   function next() { go(idx + 1); }
+  function prev() { go(idx - 1); }
   function start() { stop(); timer = setInterval(next, INTERVAL); }
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-  dots.forEach((d) => {
-    d.addEventListener('click', () => {
-      const target = parseInt(d.dataset.idx, 10);
-      go(target);
+  // Thumbnails: direkt auswählen
+  thumbs.forEach((t) => {
+    t.addEventListener('click', () => {
+      go(parseInt(t.dataset.idx, 10));
       start();
     });
   });
 
-  const stage = document.querySelector('.slider-stage');
+  // Arrows
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); start(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); start(); });
+
+  // Klick auf aktiven Slide → nächster
+  slides.forEach((s) => {
+    s.addEventListener('click', () => {
+      if (s.classList.contains('active')) { next(); start(); }
+    });
+  });
+
+  // Tastatur: ← →
+  slider.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { prev(); start(); }
+    if (e.key === 'ArrowRight') { next(); start(); }
+  });
+
+  // Auto-Pause bei Hover über Hauptbühne
+  const stage = slider.querySelector('.slider-main');
   if (stage) {
     stage.addEventListener('mouseenter', stop);
     stage.addEventListener('mouseleave', start);
   }
 
-  // Start erst wenn der Slider sichtbar wird (spart CPU)
+  // Start wenn sichtbar (spart CPU)
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { e.isIntersecting ? start() : stop(); });
-    }, { threshold: 0.2 });
-    io.observe(document.querySelector('.app-slider'));
+    }, { threshold: 0.15 });
+    io.observe(slider);
   } else {
     start();
   }
