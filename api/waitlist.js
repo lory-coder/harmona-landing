@@ -32,7 +32,7 @@ async function sendWelcomeEmail(email) {
         Du bist jetzt auf der Harmona-Warteliste. Wir arbeiten gerade mit Hochdruck an der App und melden uns bei dir, sobald es losgeht.
       </p>
       <p style="font-size:15px;line-height:1.7;color:#3D3455;margin:0 0 24px;">
-        <strong>Launch-Datum:</strong> 01. September 2026
+        <strong>Launch-Datum:</strong> 5. Mai 2026
       </p>
       <div style="background:linear-gradient(135deg,#C4A8E8,#D8A8D0);border-radius:12px;padding:20px 24px;text-align:center;">
         <p style="font-size:14px;color:#3D3455;margin:0 0 4px;font-weight:600;">Was dich erwartet</p>
