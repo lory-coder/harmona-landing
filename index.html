@@ -348,6 +348,114 @@ footer {
   .email-form { flex-direction: column; }
   footer { flex-direction: column; text-align: center; }
 }
+
+/* ── APP-SLIDER ──────────────────────────────────────── */
+.app-slider {
+  position: relative;
+  padding: 96px 48px 56px;
+  background: linear-gradient(180deg, var(--bg) 0%, #f5f0ff 100%);
+  overflow: hidden;
+}
+.app-slider::before {
+  content: '';
+  position: absolute;
+  width: 720px; height: 720px;
+  top: -260px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(167,139,250,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.slider-container {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  text-align: center;
+}
+.slider-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  color: var(--purple);
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 6px 14px;
+  background: rgba(124,58,237,0.08);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 99px;
+  margin-bottom: 18px;
+}
+.slider-heading {
+  font-size: 36px; font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin: 0 0 10px;
+  letter-spacing: -0.02em;
+}
+.slider-heading em { font-style: italic; color: var(--purple); font-weight: 700; }
+.slider-sub {
+  font-size: 16px; color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+.slider-stage {
+  position: relative;
+  height: 640px;
+  display: flex; align-items: center; justify-content: center;
+}
+.slider-track { position: relative; width: 100%; height: 100%; }
+.slide {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 290px;
+  transform: translate(-50%, 0) scale(0.92);
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  pointer-events: none;
+}
+.slide.active {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+  pointer-events: auto;
+}
+.slide img {
+  width: 100%; height: auto;
+  display: block;
+  filter: drop-shadow(0 28px 50px rgba(124,58,237,0.25));
+}
+.slide-caption {
+  margin-top: 28px;
+  font-size: 15px; font-weight: 500;
+  color: var(--text);
+}
+.slide-caption span {
+  display: block;
+  font-size: 13px; font-weight: 400;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.slider-dots {
+  display: flex; justify-content: center;
+  gap: 10px; margin-top: 8px;
+}
+.slider-dots .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.22);
+  border: none; cursor: pointer; padding: 0;
+  transition: all 0.3s ease;
+}
+.slider-dots .dot:hover { background: rgba(124,58,237,0.45); }
+.slider-dots .dot.active {
+  background: var(--purple);
+  width: 26px; border-radius: 5px;
+}
+@media (max-width: 720px) {
+  .app-slider { padding: 64px 24px 40px; }
+  .slider-heading { font-size: 26px; }
+  .slider-sub { font-size: 14px; margin-bottom: 32px; }
+  .slider-stage { height: 560px; }
+  .slide { width: 240px; }
+  .slide-caption { font-size: 14px; margin-top: 20px; }
+  .slide-caption span { font-size: 12px; }
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -366,6 +474,46 @@ footer {
     <a href="#warteliste" class="btn-nav">Jetzt testen →</a>
   </div>
 </nav>
+
+<!-- APP-SLIDER -->
+<section class="app-slider" aria-label="App-Eindrücke">
+  <div class="slider-container">
+    <div class="slider-eyebrow">So fühlt sich Harmona an</div>
+    <h2 class="slider-heading">Deine Zyklus-Begleiterin — <em>in einer App.</em></h2>
+    <p class="slider-sub">Fünf Screens, ein Rhythmus. Alles, was dein Körper heute braucht — personalisiert auf deine Phase.</p>
+    <div class="slider-stage">
+      <div class="slider-track">
+        <div class="slide active" data-idx="0">
+          <img src="images/mockup-home.png" alt="Heute-Tab mit Luna-Insight und Energie-Chart" loading="eager" width="290" height="615">
+          <p class="slide-caption">Dein Tag mit Luna<span>Energie, Recovery & heutiger Plan</span></p>
+        </div>
+        <div class="slide" data-idx="1">
+          <img src="images/mockup-plan.png" alt="Wochenplan mit Ernährung, Schlaf und Rezepten" loading="lazy" width="290" height="615">
+          <p class="slide-caption">Dein Plan für die Woche<span>Ernährung &amp; Schlaf · auf deine Phase abgestimmt</span></p>
+        </div>
+        <div class="slide" data-idx="2">
+          <img src="images/mockup-supplements.png" alt="Supplement-Liste personalisiert" loading="lazy" width="290" height="615">
+          <p class="slide-caption">Supplements, die Sinn machen<span>Vitamin D, Zink, Ashwagandha — zur richtigen Zeit</span></p>
+        </div>
+        <div class="slide" data-idx="3">
+          <img src="images/mockup-rezept.png" alt="Rezept Goldene Milch Energieballs" loading="lazy" width="290" height="615">
+          <p class="slide-caption">Rezepte, die zu dir passen<span>Entzündungshemmend, saisonal, einfach</span></p>
+        </div>
+        <div class="slide" data-idx="4">
+          <img src="images/mockup-journal.png" alt="Journal mit Neumond-Ritual" loading="lazy" width="290" height="615">
+          <p class="slide-caption">Journal &amp; Mond-Rituale<span>Intention, Reflexion, Verbindung</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="slider-dots">
+      <button class="dot active" data-idx="0" aria-label="Slide 1"></button>
+      <button class="dot" data-idx="1" aria-label="Slide 2"></button>
+      <button class="dot" data-idx="2" aria-label="Slide 3"></button>
+      <button class="dot" data-idx="3" aria-label="Slide 4"></button>
+      <button class="dot" data-idx="4" aria-label="Slide 5"></button>
+    </div>
+  </div>
+</section>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -598,6 +746,52 @@ footer {
   </div>
 
 <script>
+// ── App-Slider ──────────────────────────────────────
+(function () {
+  const slides = document.querySelectorAll('.app-slider .slide');
+  const dots = document.querySelectorAll('.app-slider .dot');
+  if (!slides.length || !dots.length) return;
+
+  let idx = 0;
+  let timer = null;
+  const INTERVAL = 4500;
+
+  function go(i) {
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = (i + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+  function next() { go(idx + 1); }
+  function start() { stop(); timer = setInterval(next, INTERVAL); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  dots.forEach((d) => {
+    d.addEventListener('click', () => {
+      const target = parseInt(d.dataset.idx, 10);
+      go(target);
+      start();
+    });
+  });
+
+  const stage = document.querySelector('.slider-stage');
+  if (stage) {
+    stage.addEventListener('mouseenter', stop);
+    stage.addEventListener('mouseleave', start);
+  }
+
+  // Start erst wenn der Slider sichtbar wird (spart CPU)
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { e.isIntersecting ? start() : stop(); });
+    }, { threshold: 0.2 });
+    io.observe(document.querySelector('.app-slider'));
+  } else {
+    start();
+  }
+})();
+
 async function handleSubmit(e) {
   e.preventDefault();
   const form = e.target;
